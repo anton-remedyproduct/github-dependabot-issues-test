@@ -5,24 +5,22 @@ import {
   hydrate,
   prerender as ssr,
 } from "preact-iso";
-import { ChakraProvider } from "@chakra-ui/react";
 
 import { Home } from "./pages/Home/index.jsx";
 import { NotFound } from "./pages/_404.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 
 export function App() {
   return (
-    <ChakraProvider>
-      <LocationProvider>
-        <main>
-          <Router>
-            <Route path="/" component={Home} />
-            <Route default component={NotFound} />
-          </Router>
-        </main>
-      </LocationProvider>
-    </ChakraProvider>
+    <LocationProvider>
+      <main>
+        <Router>
+          <Route path="/" component={Home} />
+          <Route default component={NotFound} />
+        </Router>
+      </main>
+    </LocationProvider>
   );
 }
 

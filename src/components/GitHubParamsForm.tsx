@@ -1,6 +1,7 @@
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { useSignal } from "@preact/signals";
 import { JSX } from "preact";
-import { FormLabel, Input, Button } from "@chakra-ui/react";
 
 type GitHubFormParams = {
   onSubmit: ({
@@ -28,40 +29,40 @@ function GitHubParamsForm({ onSubmit, isLoading }: GitHubFormParams) {
   const isDisabled = isLoading || !token.value || !owner.value || !repo.value;
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <div class="mb-4">
-        <FormLabel>Token</FormLabel>
-        <Input
+    <Form onSubmit={onFormSubmit}>
+      <Form.Group class="mb-4">
+        <Form.Label>Token</Form.Label>
+        <Form.Control
           value={token.value}
           onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
             (token.value = e.currentTarget.value)
           }
         />
-      </div>
+      </Form.Group>
       <div class="flex mb-4 w-full">
-        <div class="mr-4 flex-1">
-          <FormLabel>Owner</FormLabel>
-          <Input
+        <Form.Group class="mr-4 flex-1">
+          <Form.Label>Owner</Form.Label>
+          <Form.Control
             value={owner.value}
             onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
               (owner.value = e.currentTarget.value)
             }
           />
-        </div>
-        <div class="flex-1">
-          <FormLabel>Repository</FormLabel>
-          <Input
+        </Form.Group>
+        <Form.Group class="flex-1">
+          <Form.Label>Repository</Form.Label>
+          <Form.Control
             value={repo.value}
             onChange={(e: JSX.TargetedEvent<HTMLInputElement, Event>) =>
               (repo.value = e.currentTarget.value)
             }
           />
-        </div>
+        </Form.Group>
       </div>
-      <Button type="submit" isDisabled={isDisabled} isLoading={isLoading}>
+      <Button type="submit" disabled={isDisabled} variant="outline-primary">
         Submit
       </Button>
-    </form>
+    </Form>
   );
 }
 

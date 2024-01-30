@@ -1,4 +1,5 @@
 import { computed } from "@preact/signals";
+import Spinner from "react-bootstrap/Spinner";
 import {
   data,
   errorMsg,
@@ -36,6 +37,11 @@ export function Home() {
           </div>
         )}
       </section>
+      {isLoading.value && (
+        <div class="flex justify-center">
+          <Spinner />
+        </div>
+      )}
     </div>
   );
 }
