@@ -16,7 +16,7 @@ export function App() {
     <LocationProvider>
       <main>
         <Router>
-          <Route path="/" component={Home} />
+          <Route path="/github-dependabot-issues/" component={Home} />
           <Route default component={NotFound} />
         </Router>
       </main>
