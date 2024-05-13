@@ -23,9 +23,3 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: docker push repairbrain/dependabot-issues-test
-
-      - name: Pull the Docker image
-      - run: docker pull repairbrain/dependabot-issues-test
-
-      - name: Run the Docker container
-      - run: docker run -d -p 80:80 repairbrain/dependabot-issues-test
